@@ -9,19 +9,12 @@
 </head>
 <body>
 
-    <h2>php mvc crud operation</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ad adipisci aperiam atque corporis culpa dicta, doloremque doloribus, enim ipsa laboriosam magnam minus neque odit optio quos veniam, veritatis vitae.</p>
-
-    <?php
-//        foreach ($data as $key){
-//            echo $key->name."<br>";
-//            echo $key->email."<br>";
-//            echo $key->password."<br><br>";
-//        }
-        echo $data->name."<br>";
-        echo $data->email."<br>";
-        echo $data->password."<br>";
-    ?>
+    <form action="<?php echo BASEURL;?>/UserController/register" method="post">
+        <input type="text" name="name" placeholder="Your name"><br><br>
+        <input type="email" name="email" placeholder="Your Email"><br><br>
+        <input type="password" name="password" placeholder="Your password"><br><br>
+        <input type="submit" value="Submit">
+    </form>
 
 </body>
 </html>

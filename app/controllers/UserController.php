@@ -5,25 +5,21 @@ class UserController extends Framework
 {
     public function index()
     {
-        echo "user controller";
+        $this->view('user');
     }
 
-    public function userMethod(){
+    public function register()
+    {
+        $name     =  $this->input('name');
+        $email    =  $this->input('email');
+        $password =  $this->input('password');
 
-        $model = $this->model("User");
-
-        if ($model->allUser()) {
-             $data = $model->allUser();
-             $this->view('user',$data);
-        }else{
-            echo 'User registration failed.';
+        $model = $this->model('User');
+        if ($model->userRegister($name,$email,$password)) {
+            echo "User registered successfully";
+        }else {
+            echo "User registration failed.";
         }
-
-//        $data = [
-//          'title' => "Demo title",
-//          'description' => 'Demo description'
-//        ];
-//          $this->view('user',$data);
     }
 
 }

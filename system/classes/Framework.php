@@ -27,4 +27,15 @@ class Framework
         }
     }
 
+    public function input($inputName)
+    {
+
+        if ($_SERVER['REQUEST_METHOD'] == "POST" || $_SERVER['REQUEST_METHOD'] == "post") {
+            return trim($_POST[$inputName]);
+        }elseif ($_SERVER['REQUEST_METHOD'] == "GET" || $_SERVER['REQUEST_METHOD'] == "get"){
+            return trim($_GET[$inputName]);
+        }
+
+    }
+
 }
