@@ -43,12 +43,13 @@ class Route
         call_user_func_array([$this->controller,$this->method],$this->params);
     }
 
+
     public function url()
     {
         if (isset($_GET['url'])) {
            $url = $_GET['url'];
            $url = rtrim($url,'/');
-//           $url = filter_var($url.FILTER_SANITIZE_URL);
+           $url = filter_var($url,FILTER_SANITIZE_URL);
            $url = explode('/',$url);
            return $url;
         }
