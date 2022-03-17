@@ -13,10 +13,14 @@
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ad adipisci aperiam atque corporis culpa dicta, doloremque doloribus, enim ipsa laboriosam magnam minus neque odit optio quos veniam, veritatis vitae.</p>
 
     <?php
-
-    echo $data['title']."<br>";
-    echo $data['description']."<br>"
-
+//        foreach ($data as $key){
+//            echo $key->name."<br>";
+//            echo $key->email."<br>";
+//            echo $key->password."<br><br>";
+//        }
+        echo $data->name."<br>";
+        echo $data->email."<br>";
+        echo $data->password."<br>";
     ?>
 
 </body>

@@ -6,6 +6,9 @@ class Framework
 
     public function view($fileName,$data = [])
     {
+//        if ($data == true) {
+//            extract($data);
+//        }
         if (file_exists('../app/views/'.$fileName.'.php')) {
             require_once '../app/views/'.$fileName.'.php';
         }else{
