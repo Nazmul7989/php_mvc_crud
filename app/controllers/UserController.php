@@ -72,6 +72,32 @@ class UserController extends Framework
             $this->view('register',$userData);
         }
 
+    }
+
+    public function userLogin()
+    {
+        $userData = [
+            'email'         =>  $this->input('email'),
+            'password'      =>  $this->input('password'),
+            'emailError'    => '',
+            'passwordError' => ''
+        ];
+
+
+        if (empty($userData['email'])) {
+            $userData['emailError'] = 'Email Required!';
+        }
+
+        if (empty($userData['password'])) {
+            $userData['passwordError'] = 'Password Required!';
+        }
+
+        if (empty($userData['emailError']) && empty($userData['passwordError'])) {
+            echo 'login successfully';
+        }else{
+            $this->view('login',$userData);
+        }
+
 
     }
 
