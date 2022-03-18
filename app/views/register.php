@@ -10,17 +10,26 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="form-group">
-                                <input type="text" name="name" class="form-control" placeholder="Your name">
+                                <input type="text" name="name" value="<?php if (!empty($data['name'])): echo $data['name']; endif;?>" class="form-control" placeholder="Your name" autofocus>
+                                <span class="text-danger">
+                                    <?php if (!empty($data['nameError'])): echo $data['nameError']; endif;?>
+                                </span>
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-group">
-                                <input type="email" name="email" class="form-control" placeholder="Your Email">
+                                <input type="email" name="email" value="<?php if (!empty($data['email'])): echo $data['email']; endif;?>" class="form-control" placeholder="Your Email">
+                                <span class="text-danger">
+                                    <?php if (!empty($data['emailError'])): echo $data['emailError']; endif;?>
+                                </span>
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-group">
-                                <input type="password" name="password" class="form-control" placeholder="Your password">
+                                <input type="password" name="password" value="<?php if (!empty($data['password'])): echo $data['password']; endif;?>" class="form-control" placeholder="Your password">
+                                <span class="text-danger">
+                                    <?php if (!empty($data['passwordError'])): echo $data['passwordError']; endif;?>
+                                </span>
                             </div>
                         </div>
                         <div class="col-12">

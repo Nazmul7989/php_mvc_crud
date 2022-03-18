@@ -4,7 +4,7 @@
 class Route
 {
 
-    public $controller = 'Welcome';
+    public $controller = 'UserController';
     public $method     = 'index';
     public $params     = [];
 

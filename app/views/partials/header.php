@@ -10,7 +10,7 @@
     <?php linkCss('/assets/css/bootstrap.min.css');?>
     <?php linkCss('/assets/css/style.css');?>
 
-    <title>Register</title>
+    <title>PHP MVC Framework</title>
 </head>
 <body>
 
@@ -27,7 +27,7 @@
                     <a class="nav-link" href="<?php echo BASEURL;?>">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo BASEURL;?>/UserController/index">Login</a>
+                    <a class="nav-link" href="<?php echo BASEURL;?>/UserController/login">Login</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo BASEURL;?>/UserController/register">Register</a>

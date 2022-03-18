@@ -31,9 +31,9 @@ class Framework
     {
 
         if ($_SERVER['REQUEST_METHOD'] == "POST" || $_SERVER['REQUEST_METHOD'] == "post") {
-            return trim($_POST[$inputName]);
+            return trim(strip_tags($_POST[$inputName]));
         }elseif ($_SERVER['REQUEST_METHOD'] == "GET" || $_SERVER['REQUEST_METHOD'] == "get"){
-            return trim($_GET[$inputName]);
+            return trim(strip_tags($_GET[$inputName]));
         }
 
     }

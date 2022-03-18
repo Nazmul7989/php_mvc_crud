@@ -10,7 +10,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
-                                    <input type="email" name="email" class="form-control" placeholder="Your Email">
+                                    <input type="email" name="email" class="form-control" placeholder="Your Email" autofocus>
                                 </div>
                             </div>
                             <div class="col-12">

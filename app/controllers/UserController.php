@@ -7,9 +7,15 @@ class UserController extends Framework
     public function __construct()
     {
         $this->helper('link');
+        $this->userModel = $this->model("User");
     }
 
     public function index()
+    {
+        $this->view('welcome');
+    }
+
+    public function login()
     {
         $this->view('login');
     }
@@ -18,18 +24,53 @@ class UserController extends Framework
     {
         $this->view('register');
     }
+
+
     public function userRegister()
     {
-        $name     =  $this->input('name');
-        $email    =  $this->input('email');
-        $password =  $this->input('password');
+        $userData = [
+            'name'          =>  $this->input('name'),
+            'email'         =>  $this->input('email'),
+            'password'      =>  $this->input('password'),
+            'nameError'     => '',
+            'emailError'    => '',
+            'passwordError' => ''
+        ];
 
-        $model = $this->model('User');
-        if ($model->userRegister($name,$email,$password)) {
-            echo "User registered successfully";
-        }else {
-            echo "User registration failed.";
+        if (empty($userData['name'])) {
+            $userData['nameError'] = 'User Name Required!';
         }
+
+        if (empty($userData['email'])) {
+            $userData['emailError'] = 'Email Required!';
+        }else{
+            if (!$this->userModel->checkEmail($userData['email'])) {
+                $userData['emailError'] = 'This email already exists';
+            }
+        }
+
+        if (empty($userData['password'])) {
+            $userData['passwordError'] = 'Password Required!';
+        }elseif (strlen($userData['password']) < 6){
+            $userData['passwordError'] = 'Password must be at least 6 characters!';
+        }
+
+        if (empty($userData['nameError']) && empty($userData['emailError']) && empty($userData['passwordError'])) {
+
+            $password = password_hash($userData['password'],PASSWORD_DEFAULT);
+            $data = [$userData['name'],$userData['email'],$password];
+
+
+            if ($this->userModel->userRegister($data)) {
+                echo "User registered successfully";
+            }else {
+                echo "User registration failed.";
+            }
+        }else{
+            $this->view('register',$userData);
+        }
+
+
     }
 
 }
