@@ -3,12 +3,22 @@
 
 class UserController extends Framework
 {
+
+    public function __construct()
+    {
+        $this->helper('link');
+    }
+
     public function index()
     {
-        $this->view('user');
+        $this->view('login');
     }
 
     public function register()
+    {
+        $this->view('register');
+    }
+    public function userRegister()
     {
         $name     =  $this->input('name');
         $email    =  $this->input('email');

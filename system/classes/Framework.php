@@ -38,4 +38,14 @@ class Framework
 
     }
 
+    public function helper($helperName)
+    {
+        if (file_exists('../system/helpers/'.$helperName.'.php')) {
+            require_once '../system/helpers/'.$helperName.'.php';
+
+        }else{
+            echo '<div style="padding: 10px; color: red; font-size: 30px;">Sorry! '.$helperName.'.php Helper file not Found.</div>';
+        }
+    }
+
 }
