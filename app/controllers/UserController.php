@@ -62,7 +62,9 @@ class UserController extends Framework
 
 
             if ($this->userModel->userRegister($data)) {
-                echo "User registered successfully";
+                $this->setFlash('accountCreated','Your account created successfully.');
+                $this->setSession('email',$userData['email']);
+                $this->login();
             }else {
                 echo "User registration failed.";
             }

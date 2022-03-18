@@ -4,6 +4,7 @@
 class Framework
 {
 
+    //load view file
     public function view($fileName,$data = [])
     {
 //        if ($data == true) {
@@ -17,6 +18,7 @@ class Framework
 
     }
 
+    //load model
     public function model($modelName)
     {
         if (file_exists('../app/models/'.$modelName.'.php')) {
@@ -27,6 +29,7 @@ class Framework
         }
     }
 
+    //catch input value
     public function input($inputName)
     {
 
@@ -38,6 +41,7 @@ class Framework
 
     }
 
+    //load css and js file
     public function helper($helperName)
     {
         if (file_exists('../system/helpers/'.$helperName.'.php')) {
@@ -47,5 +51,50 @@ class Framework
             echo '<div style="padding: 10px; color: red; font-size: 30px;">Sorry! '.$helperName.'.php Helper file not Found.</div>';
         }
     }
+
+    public function setSession($sessionName,$sessionValue)
+    {
+        if (!empty($sessionName) && !empty($sessionValue)) {
+            $_SESSION[$sessionName] = $sessionValue;
+        }
+    }
+
+    public function getSession($sessionName)
+    {
+        if (!empty($sessionName)) {
+            return $_SESSION[$sessionName];
+        }
+    }
+
+    public function unsetSession($sessionName)
+    {
+        if (!empty($sessionName)) {
+            unset($_SESSION[$sessionName]) ;
+        }
+    }
+
+    public function destroySession()
+    {
+        session_destroy();
+    }
+
+    public function setFlash($sessionName,$msg)
+    {
+        if (!empty($sessionName) && !empty($msg)) {
+            $_SESSION[$sessionName] = $msg;
+        }
+    }
+
+    public function flash($sessionName)
+    {
+        if (!empty($sessionName) ) {
+            $msg = $_SESSION[$sessionName];
+
+            print $msg;
+            unset($_SESSION[$sessionName]);
+        }
+    }
+
+
 
 }
