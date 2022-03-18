@@ -1,12 +1,12 @@
 <?php
 
 
-class Welcome
+class Welcome extends Framework
 {
 
     public function index()
     {
-        echo "Welcome to this Site";
+        $this->view('welcome');
     }
 
 }

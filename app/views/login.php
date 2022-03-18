@@ -1,18 +1,5 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<!--    <link rel="stylesheet" href="--><?php //echo BASEURL ?><!-- /assets/css/bootstrap.min.css">-->
-    <!-- link css dynamically -->
-    <?php linkCss('/assets/css/bootstrap.min.css');?>
-    <?php linkCss('/assets/css/style.css');?>
-
-    <title>Login</title>
-</head>
-<body>
+<!--header-->
+<?php require_once 'partials/header.php'?>
 
     <div class="container mt-5">
         <div class="row d-flex justify-content-center">
@@ -44,15 +31,5 @@
         </div>
     </div>
 
-    <!--  image file load-->
-<!--    <img src="--><?php //echo BASEURL?><!--/assets/images/nature.jpg" alt="">-->
-
-    <!-- link js file dynamically  -->
-    <?php linkJs('assets/js/jquery-3.5.1.min.js'); ?>
-    <?php linkJs('assets/js/popper.min.js'); ?>
-    <?php linkJs('assets/js/bootstrap.min.js'); ?>
-    <?php linkJs('assets/js/custom.js'); ?>
-
-</body>
-</html>
-
+<!--footer-->
+<?php require_once 'partials/footer.php'?>
