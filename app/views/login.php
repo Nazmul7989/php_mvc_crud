@@ -5,12 +5,10 @@
         <div class="row d-flex justify-content-center">
             <div class="col-6">
                 <div class="card shadow px-4 py-4">
-                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <?php $this->flash('accountCreated');?>
-                    </div>
+
+                    <!-- show success message-->
+                    <?php $this->flash('accountCreated','alert alert-success alert-dismissible fade show')?>
+
                     <h5 class="text-center mb-3">User Login</h5>
                     <form action="<?php echo BASEURL;?>/UserController/register" method="post">
                         <div class="row">

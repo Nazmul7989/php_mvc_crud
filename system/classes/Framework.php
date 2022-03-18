@@ -52,6 +52,7 @@ class Framework
         }
     }
 
+    //set session data
     public function setSession($sessionName,$sessionValue)
     {
         if (!empty($sessionName) && !empty($sessionValue)) {
@@ -59,6 +60,7 @@ class Framework
         }
     }
 
+    //get session data
     public function getSession($sessionName)
     {
         if (!empty($sessionName)) {
@@ -66,6 +68,7 @@ class Framework
         }
     }
 
+    //unset session data
     public function unsetSession($sessionName)
     {
         if (!empty($sessionName)) {
@@ -73,11 +76,13 @@ class Framework
         }
     }
 
+    //delete session data
     public function destroySession()
     {
         session_destroy();
     }
 
+    //set flash message
     public function setFlash($sessionName,$msg)
     {
         if (!empty($sessionName) && !empty($msg)) {
@@ -85,13 +90,24 @@ class Framework
         }
     }
 
-    public function flash($sessionName)
+    //get flash message
+    public function flash($sessionName,$className)
     {
-        if (!empty($sessionName) ) {
+        if (!empty($sessionName) && !empty($className) && isset($_SESSION[$sessionName]) ) {
             $msg = $_SESSION[$sessionName];
 
-            print $msg;
+            echo "<div class='". $className ."'><button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                            <span aria-hidden='true'>&times;</span>
+                        </button>".$msg."</div>";
+//
             unset($_SESSION[$sessionName]);
+        }
+    }
+
+    public function redirect($path)
+    {
+        if (!empty($path)) {
+            header('location:'.BASEURL.'/'.$path);
         }
     }
 
