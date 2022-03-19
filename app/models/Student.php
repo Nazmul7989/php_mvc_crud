@@ -17,4 +17,16 @@ class Student extends Database
 
     }
 
+    public function getAllStudents()
+    {
+        $selectSql = "SELECT * FROM `students`";
+
+        if ($this->runQuery($selectSql)) {
+            $students = $this->selectAll();
+            return $students;
+        }else{
+            return false;
+        }
+    }
+
 }

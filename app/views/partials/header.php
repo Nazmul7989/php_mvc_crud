@@ -8,6 +8,7 @@
     <!--    <link rel="stylesheet" href="--><?php //echo BASEURL ?><!-- /assets/css/bootstrap.min.css">-->
     <!-- link css dynamically -->
     <?php linkCss('/assets/css/bootstrap.min.css');?>
+    <?php linkCss('/assets/css/dataTable.css');?>
     <?php linkCss('/assets/css/style.css');?>
 
     <title>PHP MVC Framework</title>

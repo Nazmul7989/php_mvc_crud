@@ -14,7 +14,7 @@
                 </div>
                 <hr>
 
-                <table class="table table-bordered">
+                <table id="myTable" class="table table-bordered">
                     <thead>
                     <tr>
                         <th>Id</th>
@@ -25,16 +25,22 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>01</td>
-                        <td>Md Nazmul Hasan</td>
-                        <td>01765376287</td>
-                        <td>nazmul@gmail.com</td>
-                        <td>
-                            <a href=""class="btn btn-sm btn-info">Edit</a>
-                            <a href=""class="btn btn-sm btn-danger">Delete</a>
-                        </td>
-                    </tr>
+
+                    <?php foreach ($data as $student){ ?>
+
+                        <tr>
+                            <td><?php echo $student->id ?></td>
+                            <td><?php echo $student->name ?></td>
+                            <td><?php echo $student->phone ?></td>
+                            <td><?php echo $student->email ?></td>
+                            <td>
+                                <a href="" class="btn btn-sm btn-info">Edit</a>
+                                <a href="" class="btn btn-sm btn-danger">Delete</a>
+                            </td>
+                        </tr>
+
+                    <?php } ?>
+
                     </tbody>
                 </table>
 

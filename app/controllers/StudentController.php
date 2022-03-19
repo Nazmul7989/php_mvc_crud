@@ -14,7 +14,9 @@ class StudentController extends Framework
 
     public function index()
     {
-        $this->view('students');
+        $data = $this->studentModel->getAllStudents();
+
+        $this->view('students',$data);
     }
 
     public function addStudent()

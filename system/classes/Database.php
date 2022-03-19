@@ -27,12 +27,11 @@ class Database
     {
         if (empty($params)) {
             $this->result = $this->con->prepare($qry);
-            $statement =  $this->result->execute();
-            return $statement;
+            return $this->result->execute();
         }else{
             $this->result = $this->con->prepare($qry);
-            $statement =  $this->result->execute($params);
-            return $statement;
+            return $this->result->execute($params);
+
         }
     }
 
