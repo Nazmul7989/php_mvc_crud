@@ -29,4 +29,16 @@ class Student extends Database
         }
     }
 
+    public function getOneStudent($id)
+    {
+        $selectSql = "SELECT * FROM `students` WHERE `id`='$id'";
+
+        if ($this->runQuery($selectSql)) {
+            $students = $this->selectOne();
+            return $students;
+        }else{
+            return false;
+        }
+    }
+
 }

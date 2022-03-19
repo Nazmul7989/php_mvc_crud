@@ -64,6 +64,23 @@ class StudentController extends Framework
         }
     }
 
+    public function editStudent($id)
+    {
+        $student = $this->studentModel->getOneStudent($id);
+        $data = [
+          'student'       => $student,
+          'nameError'  => '',
+          'phoneError' => '',
+          'emailError' => ''
+        ];
+        $this->view('editStudent',$data);
+    }
+
+    public function updateStudent()
+    {
+
+    }
+
 
 
 }
