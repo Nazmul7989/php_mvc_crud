@@ -35,7 +35,7 @@
                             <td><?php echo $student->email ?></td>
                             <td>
                                 <a href="<?php echo BASEURL;?>/StudentController/editStudent/<?php echo $student->id ?>" class="btn btn-sm btn-info">Edit</a>
-                                <a href="" class="btn btn-sm btn-danger">Delete</a>
+                                <a href="<?php echo BASEURL;?>/StudentController/deleteStudent/<?php echo $student->id ?>" onclick="return confirm('Do you want to Delete?')" class="btn btn-sm btn-danger">Delete</a>
                             </td>
                         </tr>
 

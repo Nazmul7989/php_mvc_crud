@@ -52,4 +52,15 @@ class Student extends Database
         }
     }
 
+    public function deleteStudent($id)
+    {
+        $deleteSql = "DELETE FROM `students` WHERE `id`='$id'";
+
+        if ($this->runQuery($deleteSql)) {
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 }

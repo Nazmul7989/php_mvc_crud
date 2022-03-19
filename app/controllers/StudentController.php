@@ -119,6 +119,12 @@ class StudentController extends Framework
         }
     }
 
+    public function deleteStudent($id)
+    {
+        $this->studentModel->deleteStudent($id);
+        $this->redirect('StudentController/index');
+    }
+
 
 
 }
