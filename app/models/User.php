@@ -4,6 +4,7 @@
 class User extends Database
 {
 
+    //check whether email already exists or not
     public function checkEmail($email)
     {
         if ($this->runQuery("SELECT * FROM `users` WHERE `email`='$email'")) {
@@ -14,6 +15,8 @@ class User extends Database
             }
         }
     }
+
+    //register new user
     public function userRegister($data)
     {
 
@@ -25,7 +28,23 @@ class User extends Database
             return false;
         }
 
+    }
 
+    public function userLogin($email,$password)
+    {
+        $selectSql = "SELECT * FROM `users` WHERE `email`='$email' ";
+
+        if ($this->runQuery($selectSql)) {
+            if ($this->rowCount() > 0) {
+                $row = $this->selectOne();
+                $dbPassword = $row->password;
+                if (password_verify($password,$dbPassword)) {
+                    return true;
+                }
+            }else{
+                return false;
+            }
+        }
     }
 
 }

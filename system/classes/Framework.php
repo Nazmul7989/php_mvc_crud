@@ -1,5 +1,6 @@
 <?php
 
+error_reporting(0);
 
 class Framework
 {
@@ -99,7 +100,7 @@ class Framework
             echo "<div class='". $className ."'><button type='button' class='close' data-dismiss='alert' aria-label='Close'>
                             <span aria-hidden='true'>&times;</span>
                         </button>".$msg."</div>";
-//
+
             unset($_SESSION[$sessionName]);
         }
     }

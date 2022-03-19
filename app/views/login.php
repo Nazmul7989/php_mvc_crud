@@ -7,7 +7,7 @@
                 <div class="card shadow px-4 py-4">
 
                     <!-- show success message-->
-                    <?php $this->flash('accountCreated','alert alert-success alert-dismissible fade show')?>
+                    <?php $this->flash('message','alert alert-success alert-dismissible fade show')?>
 
                     <h5 class="text-center mb-3">User Login</h5>
                     <form action="<?php echo BASEURL;?>/UserController/userLogin" method="post">

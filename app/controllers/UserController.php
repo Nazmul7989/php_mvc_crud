@@ -25,6 +25,17 @@ class UserController extends Framework
         $this->view('register');
     }
 
+    public function logout()
+    {
+        $this->destroySession();
+        $this->redirect('UserController/login');
+    }
+
+    public function profile()
+    {
+        $this->view('profile');
+    }
+
 
     public function userRegister()
     {
@@ -62,8 +73,7 @@ class UserController extends Framework
 
 
             if ($this->userModel->userRegister($data)) {
-                $this->setFlash('accountCreated','Your account created successfully.');
-                $this->setSession('email',$userData['email']);
+                $this->setFlash('message','Your account created successfully.');
                 $this->redirect('UserController/login');
             }else {
                 echo "User registration failed.";
@@ -73,6 +83,7 @@ class UserController extends Framework
         }
 
     }
+
 
     public function userLogin()
     {
@@ -93,7 +104,14 @@ class UserController extends Framework
         }
 
         if (empty($userData['emailError']) && empty($userData['passwordError'])) {
-            echo 'login successfully';
+            if ($this->userModel->userLogin($userData['email'],$userData['password'])) {
+                $this->setFlash('message','Your have successfully logged in.');
+                $this->setSession('email',$userData['email']);
+                $this->redirect('UserController/profile');
+            }else{
+                $this->setFlash('message','Invalid email or password!');
+                $this->redirect('UserController/login',$userData);
+            }
         }else{
             $this->view('login',$userData);
         }

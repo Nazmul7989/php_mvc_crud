@@ -26,13 +26,26 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="<?php echo BASEURL;?>">Home</a>
                 </li>
+                <?php if (!$this->getSession('email')): ?>
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo BASEURL;?>/UserController/login">Login</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo BASEURL;?>/UserController/register">Register</a>
                 </li>
-
+                <?php endif; ?>
+                <?php if ($this->getSession('email')): ?>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                        Account
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="<?php echo BASEURL;?>/UserController/profile">Profile</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="<?php echo BASEURL;?>/UserController/logout">Logout</a>
+                    </div>
+                </li>
+                <?php endif; ?>
             </ul>
 
         </div>
