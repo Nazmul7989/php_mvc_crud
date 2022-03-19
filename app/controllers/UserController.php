@@ -6,6 +6,9 @@ class UserController extends Framework
 
     public function __construct()
     {
+        if ($this->getSession('email')) {
+            $this->redirect('ProfileController/profile');
+        }
         $this->helper('link');
         $this->userModel = $this->model("User");
     }
@@ -29,11 +32,6 @@ class UserController extends Framework
     {
         $this->destroySession();
         $this->redirect('UserController/login');
-    }
-
-    public function profile()
-    {
-        $this->view('profile');
     }
 
 
@@ -107,7 +105,7 @@ class UserController extends Framework
             if ($this->userModel->userLogin($userData['email'],$userData['password'])) {
                 $this->setFlash('message','Your have successfully logged in.');
                 $this->setSession('email',$userData['email']);
-                $this->redirect('UserController/profile');
+                $this->redirect('ProfileController/profile');
             }else{
                 $this->setFlash('message','Invalid email or password!');
                 $this->redirect('UserController/login',$userData);
