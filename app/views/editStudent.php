@@ -13,6 +13,8 @@
                 <form action="<?php echo BASEURL;?>/StudentController/updateStudent" method="post">
                     <div class="row">
 
+                        <input type="hidden" name="id" value="<?php echo $data['student']->id; ?>">
+
                         <div class="col-12">
                             <div class="form-group">
                                 <label for="name">Name</label>

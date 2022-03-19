@@ -41,4 +41,15 @@ class Student extends Database
         }
     }
 
+    public function updateStudent($data,$id)
+    {
+        $updateSql = "UPDATE `students` SET `name`=?,`phone`=?,`email`=? WHERE `id`='$id'";
+
+        if ($this->runQuery($updateSql,$data)) {
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 }

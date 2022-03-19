@@ -78,7 +78,45 @@ class StudentController extends Framework
 
     public function updateStudent()
     {
+        $id = $this->input('id');
 
+        $studentData = [
+            'name'          =>  $this->input('name'),
+            'phone'         =>  $this->input('phone'),
+            'email'         =>  $this->input('email'),
+            'nameError'     => '',
+            'phoneError'    => '',
+            'emailError'    => ''
+        ];
+
+        if (empty($studentData['name'])) {
+            $studentData['nameError'] = 'Student Name Required!';
+        }
+
+        if (empty($studentData['phone'])) {
+            $studentData['phoneError'] = 'Phone No Required!';
+        }
+
+        if (empty($studentData['email'])) {
+            $studentData['emailError'] = 'Email Required!';
+        }
+
+
+        if (empty($studentData['nameError']) && empty($studentData['phoneError']) && empty($studentData['emailError'])) {
+
+
+            $data = [$studentData['name'],$studentData['phone'],$studentData['email']];
+
+
+            if ($this->studentModel->updateStudent($data,$id)) {
+                $this->setFlash('message','Student updated successfully.');
+                $this->redirect('StudentController/index');
+            }else {
+                echo "Student update failed.";
+            }
+        }else{
+            $this->view('editStudent',$studentData);
+        }
     }
 
 
